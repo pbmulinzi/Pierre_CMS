@@ -1,0 +1,75 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+    
+<!-- Main Content -->
+<div class="main">
+    <div class="page-header">
+        <h1 class="page-title">Orders</h1>
+        <button class="btn btn-primary">+ Create Order</button>
+    </div>
+    
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat-card">
+            <h3>43</h3>
+            <p>Total Orders</p>
+        </div>
+        <div class="stat-card">
+            <h3>12</h3>
+            <p>Pending Orders</p>
+        </div>
+        <div class="stat-card">
+            <h3>29</h3>
+            <p>Completed Orders</p>
+        </div>
+        <div class="stat-card">
+            <h3>2</h3>
+            <p>Cancelled Orders</p>
+        </div>
+    </div>
+    
+    <!-- Orders Table -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Order List</h2>
+            <div class="filters">
+                <select class="filter-dropdown">
+                    <option value="all">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search by order #, customer...">
+                </div>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ORD-#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

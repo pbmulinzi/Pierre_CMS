@@ -1,0 +1,137 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="main">
+    <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <button class="btn btn-primary">+ Add Customer</button>
+    </div>
+    
+    <!-- Stats / cards -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-icon customers-icon">👥</div>
+            <div class="stat-info">
+                <h3>127</h3>     <!--Dummy data. Will be linked to an actual counter or filter soon. -->
+                <p>Total Customers</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon orders-icon">📦</div>
+            <div class="stat-info">
+                <h3>36</h3>    <!--Dummy data. Will be linked to an actual counter or filter soon. -->
+                <p>Active Orders</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Customer Table -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Customer List</h2>
+            <div class="search-box">
+                <span>🔍</span>  <!--Will be getting a better icon soon. This will do for now though -->
+                <input type="text" placeholder="Search customers...">
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Will be linking with the views soon -->
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>(123) 456-7890</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td class="actions">
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>(234) 567-8901</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td class="actions">
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Robert Johnson</td>
+                    <td>robert@example.com</td>
+                    <td>(345) 678-9012</td>
+                    <td><span class="status status-inactive">Inactive</span></td>
+                    <td class="actions">
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Emily Williams</td>
+                    <td>emily@example.com</td>
+                    <td>(456) 789-0123</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td class="actions">
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Add Customer Form -->
+    <div class="form-container">
+        <h2 class="form-title">Add New Customer</h2>
+        <form>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="first_name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-control" name="phone">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control" name="address">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="form-control" name="status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Customer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

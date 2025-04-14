@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PierrCmsAppConfig(AppConfig):
+class PierreCmsAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'pierr_CMS_App'
+    name = 'pierre_CMS_App'

@@ -1,0 +1,120 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="main">
+    <div class="page-header">
+        <h1 class="page-title">Customers</h1>
+        <button class="btn btn-primary">+ Add Customer</button>
+    </div>
+    
+    <!-- Customer Table -->
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Customer List</h2>
+            <div class="filters">
+                <select class="filter-dropdown">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <div class="search-box">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search customers...">
+                </div>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>(123) 456-7890</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td>Apr 10, 2025</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-view">👁️</button>
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>jane@example.com</td>
+                    <td>(234) 567-8901</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td>Apr 5, 2025</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-view">👁️</button>
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Robert Johnson</td>
+                    <td>robert@example.com</td>
+                    <td>(345) 678-9012</td>
+                    <td><span class="status status-inactive">Inactive</span></td>
+                    <td>Mar 28, 2025</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-view">👁️</button>
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Emily Williams</td>
+                    <td>emily@example.com</td>
+                    <td>(456) 789-0123</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td>Mar 25, 2025</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-view">👁️</button>
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Michael Brown</td>
+                    <td>michael@example.com</td>
+                    <td>(567) 890-1234</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td>Mar 20, 2025</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-view">👁️</button>
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sarah Johnson</td>
+                    <td>sarah@example.com</td>
+                    <td>(678) 901-2345</td>
+                    <td><span class="status status-inactive">Inactive</span></td>
+                    <td>Mar 15, 2025</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-view">👁️</button>
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}

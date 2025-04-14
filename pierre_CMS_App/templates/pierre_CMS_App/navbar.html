@@ -1,0 +1,27 @@
+{% load static %}
+
+<nav class="navbar">
+    <div class="navbar-container">
+      <!-- Logo section -->
+      <a href="#" class="logo">
+        <div class="logo-icon">PC</div>
+        <div class="logo-text">PierreCustomer</div>
+      </a>
+      
+      <!-- Nav items -->
+      <div class="nav-links">
+        <a href="{% url 'dashboard' %}" class="nav-item">
+          <span class="icon">📊</span>Dashboard
+        </a>
+        <a href="{% url 'customers' %}" class="nav-item">
+          <span class="icon">👥</span>Customers
+        </a>
+        <a href="{% url 'orders' %}" class="nav-item">
+          <span class="icon">📦</span>Orders
+        </a>
+        <a href="{% url 'settings' %}" class="nav-item">
+          <span class="icon">⚙️</span>Settings
+        </a>
+      </div>
+    </div>
+  </nav>
