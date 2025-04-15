@@ -7,25 +7,25 @@
 <div class="main">
     <div class="page-header">
         <h1 class="page-title">Orders</h1>
-        <button class="btn btn-primary">+ Create Order</button>
+        <button class="btn btn-primary">Create Order</button>
     </div>
     
     <!-- Stats -->
     <div class="stats">
         <div class="stat-card">
-            <h3>43</h3>
+            <h3>{{total_orders|default:"0"}}</h3>
             <p>Total Orders</p>
         </div>
         <div class="stat-card">
-            <h3>12</h3>
+            <h3>{{pending|default:"0"}}</h3>
             <p>Pending Orders</p>
         </div>
         <div class="stat-card">
-            <h3>29</h3>
+            <h3>{{completed|default:"0"}}</h3>
             <p>Completed Orders</p>
         </div>
         <div class="stat-card">
-            <h3>2</h3>
+            <h3>{{cancelled|default:"0"}}</h3>
             <p>Cancelled Orders</p>
         </div>
     </div>

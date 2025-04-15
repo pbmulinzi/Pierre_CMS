@@ -1,0 +1,38 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="main">
+    <div class="page-header">
+        <h1 class="page-title">Products</h1>
+        <a class="btn btn-primary" href="{% url 'addProduct' %}" style="text-decoration: none;">Add Product</a>
+    </div>
+    
+    <!-- Customer Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Model</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prod in products %}
+                <tr>
+                    <td>{{prod.name}}</td>
+                    <td>{{prod.price}}</td>
+                    <td>{{prod.product_model}}</td>
+                    <td class="actions">
+                        <button class="btn-icon btn-edit">✏️</button>
+                        <button class="btn-icon btn-delete">🗑️</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+<!-- Add Product Form -->
+<div class="form-container">
+    <h2 class="form-title">Add New Product</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label class="form-label">{{prodForm.name.label_tag}}</label>
+                {{prodForm.name}}
+                {{prodForm.name.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{prodForm.product_model.label_tag}}</label>
+                {{prodForm.product_model}}
+                {{prodForm.product_model.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{prodForm.price.label_tag}}</label>
+                {{prodForm.price}}
+                {{prodForm.price.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{prodForm.currency.label_tag}}</label>
+                {{prodForm.currency}}
+                {{prodForm.currency.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{prodForm.description.label_tag}}</label>
+                {{prodForm.description}}
+                {{prodForm.description.errors}}
+            </div>
+                
+            <div class="form-submit">
+                <input type="submit" value="Save Customer" class="btn btn-primary">
+            </div>
+        </div>
+    </form>           
+            
+</div>
+
+{% endblock %}
+

@@ -8,10 +8,16 @@ class CustomerForm(ModelForm):
         model = Customer
         fields = ['first_name', 'last_name', 'phone', 'email', 'address', 'membership_status']
 
+class ProductForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ['name', 'price', 'currency', 'product_model']
+
 class OrderForm(ModelForm):
     class Meta:
         model = Order
         fields = "__all__"
+        exclude = ['order_date']
 
 class SettingsForm(ModelForm):
     class Meta:
