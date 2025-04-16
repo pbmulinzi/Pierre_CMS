@@ -13,20 +13,32 @@
     <!-- Stats -->
     <div class="stats">
         <div class="stat-card">
-            <h3>{{total_orders|default:"0"}}</h3>
-            <p>Total Orders</p>
+            <div class="stat-icon customers-icon">📦</div>
+            <div class="stat-info">
+                <h3>{{total_orders|default:"0"}}</h3>
+                <p>Total Orders</p>
+            </div>
         </div>
         <div class="stat-card">
-            <h3>{{pending|default:"0"}}</h3>
-            <p>Pending Orders</p>
+            <div class="stat-icon customers-icon">📦</div>
+            <div class="stat-info">
+                <h3>{{pending|default:"0"}}</h3>
+                <p>Pending Orders</p>
+            </div>
         </div>
         <div class="stat-card">
-            <h3>{{completed|default:"0"}}</h3>
-            <p>Completed Orders</p>
+            <div class="stat-icon customers-icon">📦</div>
+            <div class="stat-info">
+                <h3>{{completed|default:"0"}}</h3>
+                <p>Completed Orders</p>
+            </div>
         </div>
         <div class="stat-card">
-            <h3>{{cancelled|default:"0"}}</h3>
-            <p>Cancelled Orders</p>
+            <div class="stat-icon customers-icon">📦</div>
+            <div class="stat-info">
+                <h3>{{cancelled|default:"0"}}</h3>
+                <p>Cancelled Orders</p>
+            </div>
         </div>
     </div>
     
