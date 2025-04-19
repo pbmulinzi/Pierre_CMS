@@ -1,0 +1,62 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+<!-- Create Order Form -->
+<div class="form-container">
+    <h2 class="form-title">Create New Order</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label class="form-label">{{ordForm.order_number.label_tag}}</label>
+                {{ordForm.order_number}}
+                {{ordForm.order_number.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.customer.label_tag}}</label>
+                {{ordForm.customer}}
+                {{ordForm.customer.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.Product.label_tag}}</label>
+                {{ordForm.Product}}
+                {{ordForm.Product.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.Quantity.label_tag}}</label>
+                {{ordForm.Quantity}}
+                {{ordForm.Quantity.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.Units.label_tag}}</label>
+                {{ordForm.Units}}
+                {{ordForm.Units.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.order_status.label_tag}}</label>
+                {{ordForm.order_status}}
+                {{ordForm.order_status.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.delivery_address.label_tag}}</label>
+                {{ordForm.delivery_address}}
+                {{ordForm.delivery_address.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{ordForm.notes.label_tag}}</label>
+                {{ordForm.notes}}
+                {{ordForm.notes.errors}}
+            </div>
+                
+            <div class="form-submit">
+                <input type="submit" value="Save Order" class="btn btn-primary">
+            </div>
+        </div>
+    </form>           
+            
+</div>
+
+{% endblock %}
+

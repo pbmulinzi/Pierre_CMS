@@ -7,7 +7,7 @@
 <div class="main">
     <div class="page-header">
         <h1 class="page-title">Orders</h1>
-        <button class="btn btn-primary">Create Order</button>
+        <a class="btn btn-primary" href="{% url 'createOrder' %}" style="text-decoration: none;">Create Order</a>
     </div>
     
     <!-- Stats -->
@@ -62,23 +62,31 @@
         <table>
             <thead>
                 <tr>
-                    <th>Order #</th>
+                    <th>Order</th>
                     <th>Customer</th>
-                    <th>Date</th>
-                    <th>Amount</th>
+                    <th>Product</th>
+                    <th>Qty</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ORD-#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                </tr>
+                {% for ord in orders %}
+                    <tr>
+                        <td>{{ord.order_number}}</td>
+                        <td>{{ord.customer}}</td>
+                        <td>{{ord.Product}}</td>
+                        <td>{{ord.Quantity}}</td>
+                        <td>{{ord.order_status}}</td>
+                        <td>
+                            <button class="btn-icon btn-edit">✏️</button>
+                        </td>
+                        <td>
+                            <button class="btn-icon btn-delete">🗑️</button>
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

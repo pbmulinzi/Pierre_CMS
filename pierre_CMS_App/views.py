@@ -92,9 +92,34 @@ def orders(request):
     
     return render(request, 'pierre_CMS_App/orderPage.html', context)
 
-def setting(request):
+def createOrder(request):
+    ordForm = OrderForm(request.POST)
+    if request.method == "POST" and ordForm.is_valid():
+        ordForm.save()
+        return redirect('ordersPage')
+    else:
+        ordForm = OrderForm()
     context = {
+        'ordForm': ordForm,
+    }
+    return render(request, 'pierre_CMS_App/createOrder.html', context)
 
+def CompanyAccountSettings(request):
+    settings = AccountSettings.objects.all()
+    context = {
+        'settings': settings,
     }
     return render(request, 'pierre_CMS_App/settingsPage.html', context)
+
+def updateSettings(request):
+    settingForm = SettingsForm(request.POST, request.FILES)
+    if request.method == "POST" and settingForm.is_valid():
+        settingForm.save()
+        return redirect('settingsPage')
+    else:
+        settingForm = SettingsForm()
+    context = {
+        'settingForm': settingForm,
+    }
+    return render(request, 'pierre_CMS_App/updateSettings.html', context)
 

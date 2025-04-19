@@ -1,0 +1,98 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+    
+<!-- Main Content -->
+<div class="main">
+    <div class="page-header">
+        <h1 class="page-title">Update Settings</h1>
+    </div>
+    
+    <!-- Success Message (initially hidden) -->
+    <div class="alert alert-success" id="saveSuccess" style="display: none;">
+        <span class="alert-icon">✅</span>
+        Settings saved successfully!
+    </div>
+    
+    <!-- Update Settings Form -->
+    <div class="form-container">
+        <h2 class="form-title">Create New Order</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">{{settingForm.company_name.label}}</label>
+                    {{settingForm.company_name}}
+                    {{settingForm.company_name.errors}}
+                </div>
+                <div class="form-group">
+                    <label class="form-label">{{settingForm.company_email.label}}</label>
+                    {{settingForm.company_email}}
+                    {{settingForm.company_email.errors}}                        
+                </div>
+                <div class="form-group">
+                    <label class="form-label">{{settingForm.company_phone.label}}</label>
+                    {{settingForm.company_phone}}
+                    {{settingForm.company_phone.errors}}
+                </div>
+                <div>
+                    <h3 class="section-title">Company Logo</h3> 
+                    <div class="file-input-wrapper">
+                        <label class="file-input-label">
+                            Change
+                            {{settingForm.company_logo.label}}
+                        </label>
+                        {{settingForm.company_logo}}
+                        {{settingForm.company_logo.errors}}
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3 class="section-title">Address</h3>
+                    <div class="form-group">
+                        <label class="form-label">{{settingForm.company_address.label}}</label>
+                        {{settingForm.company_address}}
+                        {{settingForm.company_address.errors}}                   
+                    </div>
+                </div>
+
+
+                <div class="form-submit">
+                    <input type="submit" value="Save Changes" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>    
+<script>
+    // Simple tab functionality
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and panes
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Show corresponding tab content
+            const tabName = tab.getAttribute('data-tab');
+            document.getElementById(tabName).classList.add('active');
+        });
+    });
+    
+    // Save button functionality
+    document.getElementById('saveSettings').addEventListener('click', () => {
+        // Show success message
+        const successAlert = document.getElementById('saveSuccess');
+        successAlert.style.display = 'flex';
+        
+        // Hide after 3 seconds
+        setTimeout(() => {
+            successAlert.style.display = 'none';
+        }, 3000);
+    });
+</script>
+
+{% endblock %}

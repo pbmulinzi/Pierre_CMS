@@ -34,7 +34,9 @@
                     <th>Phone</th>
                     <th>Membership</th>
                     <th>Created Date</th>
-                    <th>Actions</th>
+                    <th>View</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,9 +48,13 @@
                         <td>{{cust.phone}}</td>
                         <td><span class="status">{{cust.membership_status}}</span></td>
                         <td>{{cust.date_created}}</td>
-                        <td class="actions">
+                        <td>
                             <button class="btn-icon btn-view">👁️</button>
+                        </td>
+                        <td>
                             <button class="btn-icon btn-edit">✏️</button>
+                        </td>
+                        <td>
                             <button class="btn-icon btn-delete">🗑️</button>
                         </td>
                     </tr>
