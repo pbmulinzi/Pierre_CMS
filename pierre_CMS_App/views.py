@@ -1,7 +1,6 @@
-#UNRELATED --- inbox carl for the templates' link.....luzzecarl@gmail.com....@mtn.com. Also, look for coat of many colors by Dolly Parton.
 #SUPERUSER IS "peter" and password is "0000"
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . models import *
 from . forms import *
 
@@ -53,6 +52,21 @@ def addCustomer(request):
         'form': form
     }
     return render(request, 'pierre_CMS_App/addCustomer.html', context)
+
+def updateCustomer(request, pk):
+    customers = Customer.objects.get(id=pk)
+    updateForm = CustomerForm(instance=customers)
+
+    if request.method == 'POST':
+        updateForm = CustomerForm(request.POST, instance=customers)
+        if updateForm.is_valid():
+            updateForm.save()
+            return redirect('dashboard')
+    context = {
+        'updateForm': updateForm,
+    }
+    return render(request, 'pierre_CMS_App/updateCustomer.html', context)
+
 
 def products(request):
     products = Product.objects.all()

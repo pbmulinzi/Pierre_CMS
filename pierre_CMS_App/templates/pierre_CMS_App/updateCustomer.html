@@ -1,0 +1,52 @@
+{% extends "pierre_CMS_App/main.html" %}
+
+{% block content %}
+
+<!-- Update Customer Form -->
+<div class="form-container">
+    <h2 class="form-title">Update Customer</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label class="form-label">{{updateForm.first_name.label_tag}}</label>
+                {{updateForm.first_name}}
+                {{updateForm.first_name.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{updateForm.last_name.label_tag}}</label>
+                {{updateForm.last_name}}
+                {{updateForm.last_name.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{updateForm.email.label_tag}}</label>
+                {{updateForm.email}}
+                {{updateForm.email.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{updateForm.phone.label_tag}}</label>
+                {{updateForm.phone}}
+                {{updateForm.phone.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{updateForm.address.label_tag}}</label>
+                {{updateForm.address}}
+                {{updateForm.address.errors}}
+            </div>
+            <div class="form-group">
+                <label class="form-label">{{updateForm.membership_status.label_tag}}</label>
+                {{updateForm.membership_status}}
+                {{updateForm.membership_status.errors}}
+            </div>
+
+            <div class="form-submit">
+                <input type="submit" value="Update Customer" class="btn btn-primary">
+            </div>
+        </div>
+    </form>           
+            
+</div>
+
+{% endblock %}
+
