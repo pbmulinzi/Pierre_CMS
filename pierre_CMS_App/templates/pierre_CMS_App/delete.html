@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre Customer</title>
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo section -->
+            <a href="#" class="logo">
+                <div class="logo-icon">PC</div>
+                <div class="logo-text">PierreCustomer</div>
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-body">
+        
+                    <p>Are you sure you want to delete "{{item}}"?</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <a class="btn btn-warning" href="{% url 'dashboard' %}">Cancel</a>
+                        <input class="btn btn-danger" type="submit" name="Confirm">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+

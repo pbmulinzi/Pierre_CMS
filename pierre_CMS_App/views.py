@@ -68,6 +68,28 @@ def updateCustomer(request, pk):
     return render(request, 'pierre_CMS_App/updateCustomer.html', context)
 
 
+def deleteCustomer(request, pk):
+    customers = Customer.objects.get(id=pk)
+    if request.method == 'POST':
+        customers.delete()
+        return redirect('/')
+    context = {
+        'item': customers,
+    }
+    return render(request, 'pierre_CMS_App/delete.html', context)
+
+# Particularly for the customers page...such that the redirection can be towards the customersPage
+def deleteCustomerrr(request, pk):
+    customers = Customer.objects.get(id=pk)
+    if request.method == 'POST':
+        customers.delete()
+        return redirect('/')
+    context = {
+        'item': customers,
+    }
+    return render(request, 'pierre_CMS_App/deleteCustomer.html', context)
+
+
 def products(request):
     products = Product.objects.all()
     prodPageForm = ProductForm(request)
@@ -88,6 +110,31 @@ def addProduct(request):
         'prodForm': prodForm,
     }
     return render(request, 'pierre_CMS_App/addProduct.html', context)
+
+def updateProduct(request, pk):
+    products = Product.objects.get(id=pk)
+    updateProductForm = ProductForm(instance=products)
+    if request.method == 'POST':
+        updateProductForm = ProductForm(request.POST, instance=products)
+        if updateProductForm.is_valid():
+            updateProductForm.save()
+            return redirect('productsPage')
+
+    context = {
+        'updateProductForm': updateProductForm,
+    }
+    return render(request, 'pierre_CMS_App/updateProduct.html', context)
+
+def deleteProduct(request, pk):
+    products = Product.objects.get(id=pk)
+    if request.method == 'POST':
+        products.delete()
+        return redirect('productsPage')
+    context = {
+        'item': products,
+    }
+    return render(request, 'pierre_CMS_App/deleteProduct.html', context)
+
 
 def orders(request): 
     orders = Order.objects.all()
@@ -117,6 +164,32 @@ def createOrder(request):
         'ordForm': ordForm,
     }
     return render(request, 'pierre_CMS_App/createOrder.html', context)
+
+def updateOrder(request, pk):
+    orders = Order.objects.get(id=pk)
+    updateOrderForm = OrderForm(instance=orders)
+
+    if request.method == "POST":
+        updateOrderForm = OrderForm(request.POST, instance=orders)
+        if updateOrderForm.is_valid():
+            updateOrderForm.save()
+            return redirect('ordersPage')
+    
+    context = {
+        'updateOrderForm': updateOrderForm,
+    }
+    return render(request, 'pierre_CMS_App/updateOrder.html', context)
+
+def deleteOrder(request, pk):
+    orders = Order.objects.get(id=pk)
+    if request.method == 'POST':
+        orders.delete()
+        return redirect('/')
+    context = {
+        'item': orders,
+    }
+    return render(request, 'pierre_CMS_App/deleteOrder.html', context)
+
 
 def CompanyAccountSettings(request):
     settings = AccountSettings.objects.all()

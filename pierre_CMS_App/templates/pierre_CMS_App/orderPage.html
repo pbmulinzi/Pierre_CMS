@@ -80,10 +80,10 @@
                         <td>{{ord.Quantity}}</td>
                         <td>{{ord.order_status}}</td>
                         <td>
-                            <button class="btn-icon btn-edit">✏️</button>
+                            <a class="btn-icon btn-edit" href="{% url 'updateOrder' ord.id %}" style="text-decoration: none;">✏️</a>
                         </td>
                         <td>
-                            <button class="btn-icon btn-delete">🗑️</button>
+                            <a class="btn-icon btn-delete" href="{% url 'deleteOrder' ord.id %}" style="text-decoration: none;">🗑️</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -63,7 +63,7 @@ class Order(models.Model):
     notes = models.TextField(max_length=300, null=True, blank=True)
 
     def __str__(self):
-        return f"Order {self.order_number} by {self.customer}" 
+        return f"{self.customer}'s order. Order number: {self.order_number} " 
     
 class AccountSettings(models.Model):
     company_name = models.CharField(max_length=200)

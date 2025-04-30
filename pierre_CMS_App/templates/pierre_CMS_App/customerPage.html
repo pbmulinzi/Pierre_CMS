@@ -52,10 +52,10 @@
                             <button class="btn-icon btn-view">👁️</button>
                         </td>
                         <td>
-                            <button class="btn-icon btn-edit">✏️</button>
+                            <a class="btn-icon btn-edit" href="{% url 'updateCustomer' cust.id %}" style="text-decoration: none;">✏️</a>
                         </td>
                         <td>
-                            <button class="btn-icon btn-delete">🗑️</button>
+                            <a class="btn-icon btn-delete" href="{% url 'deleteCustomerrr' cust.id %}" style="text-decoration: none;">🗑️</a>
                         </td>
                     </tr>
                 {% endfor %}

@@ -65,10 +65,10 @@
                         <td>{{cust.phone}}</td>
                         <td><span class="status">{{cust.membership_status}}</span></td>
                         <td>
-                            <a class="btn-icon btn-edit" href="{% url 'updateCustomer' cust.id %}">✏️</a>
+                            <a class="btn-icon btn-edit" href="{% url 'updateCustomer' cust.id %}" style="text-decoration: none;">✏️</a>
                         </td>
                         <td>
-                            <button class="btn-icon btn-delete">🗑️</button>
+                            <a class="btn-icon btn-delete" href="{% url 'deleteCustomer' cust.id %}" style="text-decoration: none;">🗑️</a>
                         </td>
                     </tr>
                 {% endfor %}
