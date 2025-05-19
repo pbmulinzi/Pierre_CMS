@@ -39,8 +39,11 @@
         <div class="card-header">
             <h2 class="card-title">Customer List</h2>
             <div class="search-box">
-                <span>🔍</span>  <!--Will be getting a better icon soon. This will do for now though -->
-                <input type="text" placeholder="Search customers...">
+                
+                <form method="get">
+                    {{myFilter.form}}
+                <button class="btn btn-primry btn-outline-info" type="submit">Search..</button>
+                </form>
             </div>
         </div>
         <table>

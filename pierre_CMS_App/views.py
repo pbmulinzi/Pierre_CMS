@@ -4,6 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . models import *
 from . forms import *
 
+from .filters import CustomerFilter
+
 # Create your views here.
 
 
@@ -13,17 +15,24 @@ def dashboard(request):
     total_basic_customers = Customer.objects.filter(membership_status = 'Basic').count()
     total_premium_customers = Customer.objects.filter(membership_status = 'Premium').count()
     form = CustomerForm(request.POST)
+
+    myFilter = CustomerFilter(request.GET, queryset=customers)
+    customers = myFilter.qs
+
     if request.method == 'POST' and form.is_valid():
         form.save()
         return redirect('dashboard')
     else:
         form = CustomerForm()
+        
     context = {
         'customers': customers,
         'total_customers': total_customers,
         'total_basic_customers': total_basic_customers,
         'total_premium_customers': total_premium_customers,
-        'form': form
+        'form': form,
+
+        'myFilter': myFilter,
     }
     return render(request, 'pierre_CMS_App/dashboardPage.html', context)
 
