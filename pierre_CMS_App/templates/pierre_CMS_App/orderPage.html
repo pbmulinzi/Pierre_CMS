@@ -47,15 +47,11 @@
         <div class="card-header">
             <h2 class="card-title">Order List</h2>
             <div class="filters">
-                <select class="filter-dropdown">
-                    <option value="all">All Status</option>
-                    <option value="pending">Pending</option>
-                    <option value="completed">Completed</option>
-                    <option value="cancelled">Cancelled</option>
-                </select>
                 <div class="search-box">
-                    <span>🔍</span>
-                    <input type="text" placeholder="Search by order #, customer...">
+                    <form method="get">
+                        {{myFilter.form}}
+                        <button class="btn btn-primry btn-outline-info" type="submit" style="background-color: rgb(175, 172, 224);">Search..</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
         {% for setting in settings %}
             <h1 class="page-title">Welcome, {{setting.company_name}}.</h1>
         {% endfor %}
-        <a class="btn btn-primary" href="{% url 'updateSettings' %}" style="text-decoration: none;">Account Settings</a>
+        <a class="btn btn-primary" href="{% url 'updateSettings' %}" style="text-decoration: none;">Edit</a>
     </div>
     
     <!-- Settings Card -->
@@ -24,11 +24,11 @@
             {% for setting in settings %}
                 <div class="tab-pane active" id="company">
                     <div>
-                        <div>
+                        <!-- <div>
                             <div class="logo-preview">
                                 <img src="{{setting.company_logo}}" alt="Company Logo">
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="form-grid">
                             <div>

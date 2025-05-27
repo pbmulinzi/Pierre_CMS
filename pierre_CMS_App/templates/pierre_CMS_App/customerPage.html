@@ -14,14 +14,11 @@
         <div class="card-header">
             <h2 class="card-title">Customer List</h2>
             <div class="filters">
-                <select class="filter-dropdown">
-                    <option value="all">All Status</option>
-                    <option value="active">Premium</option>
-                    <option value="inactive">Basic</option>
-                </select>
                 <div class="search-box">
-                    <span>🔍</span>
-                    <input type="text" placeholder="Search customers...">
+                    <form method="get">
+                        {{myFilter.form}}
+                        <button class="btn btn-primry btn-outline-info" type="submit" style="background-color: rgb(175, 172, 224);">Search..</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -34,7 +31,7 @@
                     <th>Phone</th>
                     <th>Membership</th>
                     <th>Created Date</th>
-                    <th>View</th>
+                    <!-- <th>View</th> -->
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
@@ -48,9 +45,9 @@
                         <td>{{cust.phone}}</td>
                         <td><span class="status">{{cust.membership_status}}</span></td>
                         <td>{{cust.date_created}}</td>
-                        <td>
+                        <!-- <td>
                             <button class="btn-icon btn-view">👁️</button>
-                        </td>
+                        </td> -->
                         <td>
                             <a class="btn-icon btn-edit" href="{% url 'updateCustomer' cust.id %}" style="text-decoration: none;">✏️</a>
                         </td>

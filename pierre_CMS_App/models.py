@@ -37,7 +37,6 @@ class Product(models.Model):
 
 class Order(models.Model):
     ORDER_STATUS = (
-        ('--Select--', '--Select--'),
         ('Pending', 'Pending'),
         ('Completed', 'Completed'),
         ('Cancelled', 'Cancelled'),

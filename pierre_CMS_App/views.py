@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from . models import *
 from . forms import *
 
-from .filters import CustomerFilter
+from .filters import CustomerFilter, OrderFilter, ProductFilter
 
 # Create your views here.
 
@@ -39,6 +39,10 @@ def dashboard(request):
 def customers(request):
     customers = Customer.objects.all()
     cust_form = CustomerForm(request.POST)
+
+    myFilter = CustomerFilter(request.GET, queryset=customers)
+    customers = myFilter.qs
+
     if request.method == 'POST' and cust_form.is_valid():
         cust_form.save()
         return redirect('dashboard')
@@ -47,6 +51,7 @@ def customers(request):
     context = {
         'customers': customers,
         'cust_form': cust_form,
+        'myFilter' : myFilter,
     }
     return render(request, 'pierre_CMS_App/customerPage.html', context)
 
@@ -102,9 +107,16 @@ def deleteCustomerrr(request, pk):
 def products(request):
     products = Product.objects.all()
     prodPageForm = ProductForm(request)
+
+    myFilter = ProductFilter(request.GET, queryset=products)
+    products = myFilter.qs
+
     context = {
         'products': products,
         'prodPageForm': prodPageForm,
+
+        'myFilter': myFilter,
+
     }
     return render(request, 'pierre_CMS_App/productsPage.html', context)
 
@@ -152,12 +164,17 @@ def orders(request):
     completed = Order.objects.filter(order_status='Completed').count()
     cancelled = Order.objects.filter(order_status='Cancelled').count()
 
+    myFilter = OrderFilter(request.GET, queryset=orders)
+    orders = myFilter.qs
+
     context = {
         'orders': orders,
         'total_orders': total_orders,
         'pending': pending,
         'completed': completed,
         'cancelled': cancelled,
+
+        'myFilter': myFilter,
     }
     
     return render(request, 'pierre_CMS_App/orderPage.html', context)
